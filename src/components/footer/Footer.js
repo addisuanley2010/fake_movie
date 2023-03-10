@@ -4,7 +4,13 @@ import '../../App.css'
 const Footer = () => {
   return (
     <div className='foot'>
-      Footer  
+       <h4>
+      {"Copyright © "}
+      <a href="hwww.addisu.netlify.app">
+        Addisu Anley
+      </a>
+     &nbsp; {new Date().getFullYear()}.
+    </h4>  
     </div>
   )
 }

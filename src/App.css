@@ -3,6 +3,9 @@
   min-height: 100vh;
   background: rgba(0, 0, 0, 0.905);
   color: whitesmoke;
+  font-family: Times;
+  font-weight:bold;
+  font-style: italic;
 }
 .head{
   background: rgba(36, 36, 36, 0.976);
@@ -13,6 +16,7 @@
   background: black;
   text-align: center;
   min-height: 6vh;
+  padding-top: 0.25px;
 }
 .notFound{
   min-height: 85vh;
@@ -21,7 +25,10 @@
     min-height: 85vh;
     background: rgba(10, 10, 10, 0.54);
 }
+.parent-list h3{
+color: rgb(152, 152, 241);
 
+}
 
 .list {
   display: grid;
@@ -35,6 +42,10 @@
   border-radius: 15px;
   padding-top: 20px;
   padding-bottom: 0px;
-  
+  cursor: pointer;
 
+}
+.display:hover {
+  transform: scale(1.1);
+  transition: all 0.5s;
 }
