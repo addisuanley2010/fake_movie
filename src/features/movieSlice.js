@@ -3,7 +3,8 @@ import { APIKey } from '../common/api/apiKey'
 import movieApi from '../common/api/movieApi'
 const initialState = {
         movie: [],
-        show:[]
+        show:[],
+        singleShow:[]
 }
 const movieText = "harry"
 
@@ -23,11 +24,22 @@ export const fetchSeries = createAsyncThunk('movie/fetchSeries', async () => {
 
 
 
+export const fetchSingleMovie = createAsyncThunk('movie/fetchSingleMovie', async (id) => {
+        const response = await movieApi.get(`?apiKey=${APIKey}&i=${id}&Plot=full`).catch((err) => { console.log("error", err) })
+
+        return response.data
+})
+
+
 
 const movieSlice = createSlice({
         name: "movie",
         initialState,
-      
+        reducers:{
+         removeFetchSingleMovie:(state,action)=>{
+                state.singleShow=[]
+         }
+        },
         extraReducers: (builder) => {
                 builder.addCase(fetchMovie.pending, (state, action) => {
                         console.log("pending")
@@ -43,10 +55,18 @@ const movieSlice = createSlice({
                         
 
                 })
-                builder.addCase(fetchMovie.rejected,(state,action)=>{
-                        console.log("error")
+                 builder.addCase(fetchSingleMovie.fulfilled, (state, action) => {
+                        state.singleShow = action.payload
+                        
+                        console.log(action.payload)
+
                 })
+                builder.addCase(fetchSingleMovie.rejected,(state,action)=>{
+                        console.log("error happened sorry")
+                })
+               
         }
 })
 
+export const {removeFetchSingleMovie} =movieSlice.actions
 export default movieSlice.reducer
