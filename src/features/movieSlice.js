@@ -1,6 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { APIKey } from '../common/api/apiKey'
-import movieApi from '../common/api/movieApi'
+import axios from "axios";
+// import axios from '../common/api/axios'
 const initialState = {
         movie: [],
         show:[],
@@ -9,7 +10,7 @@ const initialState = {
 const movieText = "harry"
 
 export const fetchMovie = createAsyncThunk('movie/fetchMovie', async () => {
-        const response = await movieApi.get(`?apiKey=${APIKey}&s=${movieText}&type=movie`).catch((err) => { console.log("error", err) })
+        const response = await axios.get(`http://www.omdbapi.com/?apiKey=${APIKey}&s=${movieText}&type=movie`).catch((err) => { console.log("error", err) })
 
         return response.data
 })
@@ -17,7 +18,7 @@ export const fetchMovie = createAsyncThunk('movie/fetchMovie', async () => {
 
 
 export const fetchSeries = createAsyncThunk('movie/fetchSeries', async () => {
-        const response = await movieApi.get(`?apiKey=${APIKey}&s=${movieText}&type=series`).catch((err) => { console.log("error", err) })
+        const response = await axios.get(`http://www.omdbapi.com/?apiKey=${APIKey}&s=${movieText}&type=series`).catch((err) => { console.log("error", err) })
 
         return response.data
 })
@@ -25,7 +26,7 @@ export const fetchSeries = createAsyncThunk('movie/fetchSeries', async () => {
 
 
 export const fetchSingleMovie = createAsyncThunk('movie/fetchSingleMovie', async (id) => {
-        const response = await movieApi.get(`?apiKey=${APIKey}&i=${id}&Plot=full`).catch((err) => { console.log("error", err) })
+        const response = await axios.get(`http://www.omdbapi.com/?apiKey=${APIKey}&i=${id}&Plot=full`).catch((err) => { console.log("error", err) })
 
         return response.data
 })

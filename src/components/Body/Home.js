@@ -14,7 +14,6 @@ const Home = () => {
 
   return (
     <div className='home'>
-      Home
       <MovieList />
     </div>
   )
