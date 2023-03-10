@@ -1,6 +1,9 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import MovieDisplay from "./MovieDisplay";
+
+import '../../App.css'
+
 const MovieList = () => {
         const movie = useSelector((state) => state.movieReducer.movie);
 
@@ -17,9 +20,8 @@ const MovieList = () => {
                 );
 
         return (
-                <div>
-                        <h3>Movie List</h3>
-                        <div>{displayMovie}</div>
+                <div className="list">
+                       {displayMovie}
                 </div>
         );
 };

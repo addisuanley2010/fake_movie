@@ -1,3 +1,40 @@
 .App {
   text-align: center;
+  min-height: 100vh;
+  background: rgba(0, 0, 0, 0.905);
+  color: whitesmoke;
+}
+.head{
+  background: rgba(36, 36, 36, 0.976);
+  text-align: center;
+  min-height: 8vh;
+}
+.foot{
+  background: black;
+  text-align: center;
+  min-height: 6vh;
+}
+.notFound{
+  min-height: 85vh;
+}
+.home{
+    min-height: 85vh;
+    background: rgba(10, 10, 10, 0.54);
+}
+
+
+.list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 20px;
+}
+
+
+.display{
+  background: rgba(84, 76, 76, 0.389) ;
+  border-radius: 15px;
+  padding-top: 20px;
+  padding-bottom: 0px;
+  
+
 }
